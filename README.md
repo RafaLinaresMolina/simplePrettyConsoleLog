@@ -49,6 +49,5 @@ logger({ type: 3, msg: "Entrada en el metodo de loggin" });
 And this will be the output:
 
 ![Final result](final-result.png)
-Format: ![Alt Text](url)
 
 hope this is useful for someone.
