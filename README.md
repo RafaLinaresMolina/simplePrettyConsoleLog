@@ -1,6 +1,6 @@
 # Simple Pretty console.log
 
-Just a simple js file for make the console.log a bit more colorfull and readable.
+Just a simple js file for make the console.log a bit more colorfull and readable on the browser.
 
 ## Config
 For the moment the config is in the same js file.
