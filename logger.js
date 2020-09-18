@@ -61,17 +61,18 @@ const syntaxHighlight = (json) => {
 
 /**
  * Method for print with style the message to the terminal.
- * @param {type, msg} object 
+ * @param {Number} type 
+ * @param {String} msg 
  */
-const logger = (object) => {
+const logger = (type, msg) => {
 
   // We will ignore the logs if they do not exist and if they are outside the level of interest
-  if (errorTypes[object.type] && object.type <= minimumLevelLog) {
+  if (errorTypes[type] && type <= minimumLevelLog) {
     const formatedMessage =
       stylePrefix +
-      errorTypes[object.type].header +
-      syntaxHighlight(object.msg);
-    console.log(formatedMessage, errorTypes[object.type].style);
+      errorTypes[type].header +
+      syntaxHighlight(msg);
+    console.log(formatedMessage, errorTypes[type].style);
   }
 }
 
