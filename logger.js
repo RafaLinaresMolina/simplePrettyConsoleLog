@@ -73,18 +73,34 @@ const logger = (type, msg) => {
   }
 };
 
-const setHeaderDate = (header, toIso) => {
+/**
+ * This function replace the prefix to the actual date
+ * @param {string} header 
+ * @returns string
+ */
+const setHeaderDate = (header) => {
   if (configValues["dateIso"])
     return header.replace("##DATE##", new Date().toISOString());
   else return header.replace("##DATE##", dateToDefaultFormat(new Date()));
 };
 
+/**
+ * This function return the default date format
+ * @param {Date} date
+ * @returns string 
+ */
 const dateToDefaultFormat = (date) => {
   return `${date.getFullYear()}-${
     date.getMonth() + 1
   }-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
 };
 
+/**
+ * This method types the console.log message 
+ * and applies the styles/colors
+ * @param {number} type 
+ * @param {string} msg 
+ */
 const typeMessage = (type, msg) => {
   if (configValues[type] && type <= minimumLevelLog) {
     let formatedMessage = "";
