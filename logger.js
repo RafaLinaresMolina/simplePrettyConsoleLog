@@ -118,4 +118,7 @@ const typeMessage = (type, msg) => {
   }
 };
 
-module.exports = {logger,readConfig};
+((exports) => { 
+  exports.logger = logger;
+  exports.readConfig = readConfig;
+}) (typeof exports === 'undefined'? this['sampleModule']={}: exports); 
