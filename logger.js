@@ -3,6 +3,7 @@ const frontPrefix = "%c";
 const backPrefix = "\x1b";
 const resetColorOnNode = "\x1b[0m";
 const isNode = typeof process === "object";
+const configPath = "./config.json";
 let configValues;
 
 /**
@@ -12,11 +13,11 @@ let configValues;
 const readConfig = async () => {
   let data;
   if (!isNode) {
-    data = await fetch("./config.json");
+    data = await fetch(configPath);
     data = await data.json();
   } else {
     const fs = require("fs").promises;
-    data = await fs.readFile("./config.json", "utf-8");
+    data = await fs.readFile(configPath, "utf-8");
     data = JSON.parse(data);
   }
   minimumLevelLog = data["minimumLevelLog"];
