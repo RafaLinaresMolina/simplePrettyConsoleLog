@@ -1,0 +1,24 @@
+{
+	"minimumLevelLog" : 3,
+	"dateIso": true,
+  "0": {
+    "frontStyle": "color: red; font-weight: bold;",
+    "header": "[ ##DATE## ] † ERR: ",
+    "nodeFontColor": "[31m"
+  },
+  "1": {
+    "frontStyle": "color: orange; font-weight: bold;",
+    "header": "[ ##DATE## ] ▲ WAR: ",
+    "nodeFontColor": "[33m"
+  },
+  "2": {
+    "frontStyle": "color: lightgreen; font-weight: bold;",
+    "header": "[ ##DATE## ] ► DAT: ",
+    "nodeFontColor": "[32m"
+  },
+  "3": {
+    "frontStyle": "color: lightblue; font-weight: bold;",
+    "header": "[ ##DATE## ] • INF: ",
+    "nodeFontColor": "[34m"
+  }
+}
