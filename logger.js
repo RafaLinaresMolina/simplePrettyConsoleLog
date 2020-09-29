@@ -1,31 +1,28 @@
-let minimumLevelLog;
 const frontPrefix = "%c";
 const backPrefix = "\x1b";
 const resetColorOnNode = "\x1b[0m";
 const isNode = typeof process === "object";
-const configPath = "./config.json";
+let minimumLevelLog;
 let configValues;
-
 /**
- * Function to retrive the data from the config file
+ * Method to retrive the data from the config file
  * @returns json
  */
-const readConfig = async () => {
+const readConfig = async (path = 'config.json') => {
   let data;
   if (!isNode) {
-    data = await fetch(configPath);
+    data = await fetch(path);
     data = await data.json();
   } else {
     const fs = require("fs").promises;
-    data = await fs.readFile(configPath, "utf-8");
+    data = await fs.readFile(path, "utf-8");
     data = JSON.parse(data);
   }
   minimumLevelLog = data["minimumLevelLog"];
-  return data;
+  configValues = data;
 };
 
 readConfig()
-  .then((data) => (configValues = JSON.parse(data)))
   .catch((err) => console.log);
 
 /**
@@ -76,7 +73,7 @@ const logger = (type, msg) => {
 
 /**
  * This function replace the prefix to the actual date
- * @param {string} header 
+ * @param {string} header
  * @returns string
  */
 const setHeaderDate = (header) => {
@@ -88,7 +85,7 @@ const setHeaderDate = (header) => {
 /**
  * This function return the default date format
  * @param {Date} date
- * @returns string 
+ * @returns string
  */
 const dateToDefaultFormat = (date) => {
   return `${date.getFullYear()}-${
@@ -97,10 +94,10 @@ const dateToDefaultFormat = (date) => {
 };
 
 /**
- * This method types the console.log message 
+ * This method types the console.log message
  * and applies the styles/colors
- * @param {number} type 
- * @param {string} msg 
+ * @param {number} type
+ * @param {string} msg
  */
 const typeMessage = (type, msg) => {
   if (configValues[type] && type <= minimumLevelLog) {
@@ -121,4 +118,4 @@ const typeMessage = (type, msg) => {
   }
 };
 
-export default logger;
+module.exports = {logger,readConfig};
