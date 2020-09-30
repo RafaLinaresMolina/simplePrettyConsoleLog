@@ -108,9 +108,9 @@ const typeMessage = (type, msg) => {
       )} ${syntaxHighlight(msg)}`;
       console.log(formatedMessage, configValues[type].frontStyle);
     } else {
-      formatedMessage = `${backPrefix}${
-        configValues[type].nodeFontColor
-      } ${setHeaderDate(configValues[type].header)} ${syntaxHighlight(
+      formatedMessage = `${
+        configValues[type].nodeFontColor.replace(/PREFIX/g, backPrefix)
+      }${setHeaderDate(configValues[type].header)} ${syntaxHighlight(
         msg
       )} ${resetColorOnNode}`;
       console.log(formatedMessage);

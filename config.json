@@ -1,24 +1,29 @@
 {
-	"minimumLevelLog" : 3,
+	"minimumLevelLog" : 4,
 	"dateIso": true,
   "0": {
     "frontStyle": "color: red; font-weight: bold;",
-    "header": "[ ##DATE## ] † ERR: ",
-    "nodeFontColor": "[31m"
+    "header": "[ ##DATE## ] † ERROR: ",
+    "nodeFontColor": "PREFIX[31mPREFIX[1m"
   },
   "1": {
     "frontStyle": "color: orange; font-weight: bold;",
-    "header": "[ ##DATE## ] ▲ WAR: ",
-    "nodeFontColor": "[33m"
+    "header": "[ ##DATE## ] ▲ WARNING: ",
+    "nodeFontColor": "PREFIX[33mPREFIX[5m"
   },
   "2": {
-    "frontStyle": "color: lightgreen; font-weight: bold;",
-    "header": "[ ##DATE## ] ► DAT: ",
-    "nodeFontColor": "[32m"
+    "frontStyle": "color: orange; font-weight: bold;",
+    "header": "[ ##DATE## ] # DEBUG: ",
+    "nodeFontColor": "PREFIX[36m"
   },
   "3": {
+    "frontStyle": "color: lightgreen; font-weight: bold;",
+    "header": "[ ##DATE## ] ► DATA: ",
+    "nodeFontColor": "PREFIX[32m"
+  },
+  "4": {
     "frontStyle": "color: lightblue; font-weight: bold;",
-    "header": "[ ##DATE## ] • INF: ",
-    "nodeFontColor": "[34m"
+    "header": "[ ##DATE## ] • INFO: ",
+    "nodeFontColor": "PREFIX[34m"
   }
 }
